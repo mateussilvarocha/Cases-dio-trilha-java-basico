@@ -11,7 +11,19 @@ public class Main {
 //        System.out.println("Digite o salários pretendido por você:");
 //        String salario_pretendido = scanner.next();
 //        analisar_candidato("1200");
-        selecaoCandidato();
+//        selecaoCandidato();
+        imprimirSelecionados();
+    }
+    static void imprimirSelecionados(){
+        String[] candidatos = {"Felipe", "Marcia", "Julia", "Paulo", "Augusto"};
+        System.out.println("Imprimindo a lista de candidatos informando o indice do elemento");
+        for(int indice = 0; indice < candidatos.length;indice++){
+            System.out.println("O candidato de nº '"+ indice+1+"' é "+ candidatos[indice]);
+        }
+        System.out.println("Forma abreviada de interação for each");
+        for(String candidato: candidatos){
+            System.out.println("O candidato selecionado foi "+ candidato);
+        }
     }
     static void selecaoCandidato(){
         String[] candidatos = {"Felipe", "Marcia", "Julia", "Paulo", "Augusto","Felipe", "Marcia", "Julia", "Paulo", "Augusto"};
