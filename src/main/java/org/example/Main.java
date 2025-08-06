@@ -1,18 +1,49 @@
 package org.example;
 
+import java.util.Random;
 import java.util.Scanner;
 
 import static java.text.ChoiceFormat.nextDouble;
 import java.util.concurrent.ThreadLocalRandom;
 public class Main {
     public static void main(String[] args) {
+        String[] candidatos = {"Felipe", "Marcia", "Julia", "Paulo", "Augusto"};
 
         //        Scanner scanner = new Scanner(System.in);
 //        System.out.println("Digite o salários pretendido por você:");
 //        String salario_pretendido = scanner.next();
 //        analisar_candidato("1200");
 //        selecaoCandidato();
-        imprimirSelecionados();
+//        imprimirSelecionados();
+        for(String candidato: candidatos) {
+            ligandoCandidato(candidato);
+        }
+    }
+    static void ligandoCandidato(String candidato){
+        String[] candidatos = {"Felipe", "Marcia", "Julia", "Paulo", "Augusto"};
+
+        int tentativasRealizadas = 1;
+        boolean continuarTentando = true;
+        boolean atendeu = false;
+        do{
+            atendeu = atender();
+            continuarTentando = !atendeu;
+            if(continuarTentando){
+                tentativasRealizadas++;
+            }else{
+                System.out.println("CONTATO REALIZADO COM SUCESSO");
+            }
+        } while(continuarTentando && tentativasRealizadas < 3);
+
+            if (atendeu){
+                System.out.println("CONSEGUIMOS CONTATO COM "+candidato+ " APÓS "+ tentativasRealizadas + "TENTATIVA(S)");
+            }else {
+                System.out.println("NÃO CONSEGUIMOS CONTATO COM O " + candidato);
+            }
+
+    }
+    static boolean atender(){
+        return new Random().nextInt(3)==1;
     }
     static void imprimirSelecionados(){
         String[] candidatos = {"Felipe", "Marcia", "Julia", "Paulo", "Augusto"};
